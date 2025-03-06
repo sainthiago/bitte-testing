@@ -1,3 +1,5 @@
+"use client"
+
 import { useContext, useEffect, useState } from 'react';
 
 import { Cards } from '@/components/cards';
@@ -5,6 +7,7 @@ import styles from '@/styles/app.module.css';
 import { NearContext } from '@/wallets/near';
 
 import { HelloNearContract } from '../../config';
+import {BitteAiChat} from "@bitte-ai/chat";
 
 // Contract that the app will interact with
 const CONTRACT = HelloNearContract;
@@ -69,6 +72,12 @@ export default function HelloNear() {
         </div>
         <div className="w-100 text-end align-text-center" hidden={loggedIn}>
           <p className="m-0"> Please login to change the greeting </p>
+        </div>
+        <div>
+        <BitteAiChat  
+          agentid="your-agent-id"
+          apiUrl="/api/chat"
+      />
         </div>
       </div>
       <Cards />
